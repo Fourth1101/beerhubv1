@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G7 chess tournament!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* bg-gray-50 */
+            color: #1f2937; /* text-gray-800 */
+        }
+
+        .bracket-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+            min-height: 100vh;
+            overflow-x: auto;
+        }
+        
+        .bracket-area {
+            position: relative;
+            width: 950px;
+            height: 550px;
+        }
+        
+        .bracket-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .round-title {
+            position: absolute;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ef4444; /* text-red-500 */
+            text-align: center;
+            width: 160px;
+            z-index: 2;
+        }
+        
+        .matchup {
+            position: absolute;
+            width: 160px;
+            z-index: 2;
+        }
+        
+        .team-box {
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            margin-bottom: 0.75rem; /* Increased margin */
+        }
+        
+        .team-name {
+            cursor: text;
+            padding: 0.875rem; /* Increased padding */
+            min-width: 160px;
+            text-align: center;
+            font-size: 1rem; /* Increased font size */
+            transition: background-color 0.2s ease-in-out;
+        }
+        
+        .team-name:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: -1px;
+            background-color: #f3f4f6;
+        }
+
+        .champion-box-wrapper {
+            position: absolute;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <div class="bracket-container">
+        <h1 class="text-4xl font-bold text-green-600 mb-12 tracking-tight">G7 chess tournament!</h1>
+        <div class="bracket-area">
+            <!-- SVG Layer for Connector Lines -->
+            <svg class="bracket-svg">
+                <!-- R1 to R2 Connectors -->
+                <polyline fill="none" stroke="#9ca3af" stroke-width="2" points="160,90 210,90 210,162 260,162" />
+                <polyline fill="none" stroke="#9ca3af" stroke-width="2" points="160,346 210,346 210,375 260,375" />
+                <polyline fill="none" stroke="#9ca3af" stroke-width="2" points="160,476 210,476 210,431 260,431" />
+
+                <!-- R2 to R3 Connectors -->
+                <polyline fill="none" stroke="#9ca3af" stroke-width="2" points="420,190 470,190 470,318 520,318" />
+                <polyline fill="none" stroke="#9ca3af" stroke-width="2" points="420,403 470,403 470,374 520,374" />
+
+                <!-- R3 to Champion Connector -->
+                <polyline fill="none" stroke="#9ca3af" stroke-width="2" points="680,346 782,346" />
+            </svg>
+
+            <!-- ROUND 1 TEAMS -->
+            <div class="matchup" style="top: 40px; left: 0;">
+                <div class="team-box"><div class="team-name" contenteditable="true">Krid</div></div>
+                <div class="team-box"><div class="team-name" contenteditable="true">Sinam</div></div>
+            </div>
+            <!-- This space is intentionally left blank for Team 3's bye -->
+            <div class="matchup" style="top: 296px; left: 0;">
+                <div class="team-box"><div class="team-name" contenteditable="true">Cha Aim</div></div>
+                <div class="team-box"><div class="team-name" contenteditable="true">Win</div></div>
+            </div>
+            <div class="matchup" style="top: 426px; left: 0;">
+                <div class="team-box"><div class="team-name" contenteditable="true">Aomsin</div></div>
+                <div class="team-box"><div class="team-name" contenteditable="true">Oryuu</div></div>
+            </div>
+
+            <!-- ROUND 2 TEAMS -->
+            <div class="matchup" style="top: 140px; left: 260px;">
+                <div class="team-box"><div class="team-name" contenteditable="true">???</div></div>
+                <div class="team-box"><div class="team-name" contenteditable="true">Panๆ</div></div>
+            </div>
+            <div class="matchup" style="top: 353px; left: 260px;">
+                <div class="team-box"><div class="team-name" contenteditable="true">???</div></div>
+                <div class="team-box"><div class="team-name" contenteditable="true">???</div></div>
+            </div>
+
+            <!-- ROUND 3 (FINAL) -->
+            <div class="matchup" style="top: 296px; left: 520px;">
+                <div class="team-box"><div class="team-name" contenteditable="true">???</div></div>
+                <div class="team-box"><div class="team-name" contenteditable="true">???</div></div>
+            </div>
+            
+            <!-- CHAMPION -->
+            <div class="champion-box-wrapper" style="top: 305px; left: 780px;">
+                <div class="bg-green-100 border-2 border-green-400 rounded-lg p-2 text-center">
+                    <div class="font-bold text-green-700 text-sm mb-2">CHAMPION</div>
+                    <div class="team-box">
+                        <div class="team-name font-bold" contenteditable="true">???</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Food Section -->
+    <div class="text-center pb-12 px-4">
+        <p class="text-lg text-gray-700 mb-4">Are you hungry while watching the tournament? Order food here:</p>
+        <a href="https://fourth1101.github.io/beerhubv1/New%20Text%20Document.html" target="_blank" rel="noopener noreferrer">
+            <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
+                Order!
+            </button>
+        </a>
+    </div>
+
+</body>
+</html>
+
+
+
+
